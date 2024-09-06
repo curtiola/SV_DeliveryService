@@ -57,7 +57,6 @@
     <Compile Include="Framework\LocationHelper.cs" />
     <Compile Include="Framework\SaveDataModel.cs" />
     <Compile Include="Framework\SyncDataModel.cs" />
-    <Compile Include="Framework\WizardMail.cs" />
     <Compile Include="Pathoschild\ItemType.cs" />
     <Compile Include="Pathoschild\UI\CommonSprites.cs" />
     <Compile Include="Pathoschild\CommonHelper.cs" />
