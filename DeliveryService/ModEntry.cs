@@ -298,8 +298,8 @@ namespace DeliveryService
         private void MoveItems(DeliveryChest from, DeliveryChest to, Tuple<DeliveryCategories, int>[] filter)
         {
             // Store items because removing items aborts foreach()
-            Item[] Items = from.Chest.Items.ToArray();
-            foreach (Item item in Items)
+            Item[] items = from.Chest.Items.ToArray();
+            foreach (Item item in items)
             {
                 string type = "";
                 int quality = 1;
