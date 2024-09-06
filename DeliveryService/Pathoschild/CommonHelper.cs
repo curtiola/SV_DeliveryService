@@ -5,7 +5,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Pathoschild.Stardew.Common.UI;
 using StardewModdingAPI;
+using StardewModdingAPI.Framework.ModLoading.Rewriters.StardewValley_1_6;
 using StardewValley;
+using StardewValley.Buildings;
 using StardewValley.Locations;
 using StardewValley.Menus;
 using StardewValley.Objects;
@@ -49,7 +51,7 @@ namespace Pathoschild.Stardew.Common
         {
             return Game1.locations
                 .Concat(
-                    from location in Game1.locations.OfType<BuildableGameLocation>()
+                    from location in Game1.locations
                     from building in location.buildings
                     where building.indoors.Value != null
                     select building.indoors.Value

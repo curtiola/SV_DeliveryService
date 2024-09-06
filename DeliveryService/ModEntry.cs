@@ -51,7 +51,22 @@ namespace DeliveryService
         private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
         {
             if (Config.WaitForWizardShop)
-                Helper.Content.AssetEditors.Add(new WizardMail());
+                //Helper.Content.AssetEditors.Add(new WizardMail());
+                Helper.Events.Content.AssetRequested += this.OnAssetRequested;
+
+
+        }
+
+        private void OnAssetRequested(object sender, AssetRequestedEventArgs e)
+        {
+            if (e.NameWithoutLocale.IsEquivalentTo("Data/mail"))
+            {
+                e.Edit(asset =>
+                {
+                    var data = asset.AsDictionary<string, string>().Data;
+                    data["DeliveryServiceWizardMail"] = "Hello @... ^I have noticed that the Junimos have been rummaging around in my chests.  I've been doing some experiments, and believe we can take advantage of this.  If you place these runes on your chests, the Junimos should deliver items between chests while you sleep.^^    - M";
+                });
+            }
         }
 
         private void OnMenuChanged(object sender, MenuChangedEventArgs e)
@@ -283,8 +298,8 @@ namespace DeliveryService
         private void MoveItems(DeliveryChest from, DeliveryChest to, Tuple<DeliveryCategories, int>[] filter)
         {
             // Store items because removing items aborts foreach()
-            Item[] items = from.Chest.items.ToArray();
-            foreach (Item item in items)
+            Item[] Items = from.Chest.Items.ToArray();
+            foreach (Item item in Items)
             {
                 string type = "";
                 int quality = 1;
@@ -304,7 +319,7 @@ namespace DeliveryService
                     continue;
                 }
                 //this.Monitor.Log($"Removing item", LogLevel.Trace);
-                from.Chest.items.Remove(item);
+                from.Chest.Items.Remove(item);
             }
         }
         private DeliveryChest GetDeliveryChestFromMessage(SerializableChestLocation message)
