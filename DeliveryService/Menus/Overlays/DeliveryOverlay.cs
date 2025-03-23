@@ -102,7 +102,7 @@ namespace DeliveryService.Menus.Overlays
 
         /// <summary>The menu instance for which the overlay was created.</summary>
         public DeliveryOverlay(IMonitor monitor, ItemGrabMenu menu, DeliveryChest chest, IModHelper helper, string modid, long hostid)
-            : base(helper.Events, helper.Input, keepAlive: () => Game1.activeClickableMenu is ItemGrabMenu)
+            : base(helper.Events, helper.Input, helper.Reflection, keepAlive: () => Game1.activeClickableMenu is ItemGrabMenu)
         {
             this.Menu = menu;
             this.Chest = chest;
@@ -138,7 +138,7 @@ namespace DeliveryService.Menus.Overlays
             if (! Context.IsMainPlayer)
                 this.Multiplayer.SendMessage(new SerializableChestLocation(chest), "RequestDeliveryOptions", modIDs: new[] { this.ModID }, playerIDs: new[] { this.HostID });
         }
-        protected override void Draw(SpriteBatch batch)
+        protected override void DrawUi(SpriteBatch batch)
         {
             if (!this.isDrawn)
             {
@@ -306,7 +306,7 @@ namespace DeliveryService.Menus.Overlays
             Monitor.Log($"Disposing {Chest.Location}", LogLevel.Trace);
             base.Dispose();
         }
-        protected override void ReceiveGameWindowResized(xTile.Dimensions.Rectangle oldBounds, xTile.Dimensions.Rectangle newBounds)
+        protected override void ReceiveGameWindowResized()
         {
             this.ReinitializeComponents();
         }
