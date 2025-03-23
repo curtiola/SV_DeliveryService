@@ -6,11 +6,5 @@
   "UniqueID": "AxesOfEvil.DeliveryService",
   "EntryDll": "DeliveryService.dll",
   "MinimumApiVersion": "4.0.0",
-  "UpdateKeys": [ "Nexus:5187"],
-  "Dependencies": [
-   {
-      "UniqueID": "Alek.MegaStorage",
-      "IsRequired": false
-   }
-]
+  "UpdateKeys": ["Github:Curtiola/SV_DeliveryService"]
 }
