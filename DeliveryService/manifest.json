@@ -1,7 +1,7 @@
 ﻿{
   "Name": "DeliveryService",
   "Author": "AxesOfEvil",
-  "Version": "0.10.3",
+  "Version": "0.10.3-unofficial.2-curtiola",
   "Description": "Move items between chests nightly",
   "UniqueID": "AxesOfEvil.DeliveryService",
   "EntryDll": "DeliveryService.dll",
