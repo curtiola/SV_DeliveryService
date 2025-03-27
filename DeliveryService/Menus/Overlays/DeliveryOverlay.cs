@@ -237,9 +237,10 @@ namespace DeliveryService.Menus.Overlays
             this.maxLabelWidth = 24 + 10 + (int)this.SendCategories.Select(p => font.MeasureString(p.Name()).X).Max();
             this.LabelHeight = (int)font.MeasureString("ABC").Y + 2;
             Rectangle sprite = Sprites.Icons.Junimo;
-            int topOffset = -Game1.pixelZoom * 12;
+            int topOffset = -Game1.pixelZoom * 25;
             int leftOffset = Game1.pixelZoom * 16;
             float zoom = 2f * Game1.pixelZoom / 2f;
+            //float zoomLevel = Game1.options.zoomLevel;
             int checkbox_width = 26;
 
             Rectangle buttonBounds = new Rectangle(this.Menu.xPositionOnScreen + leftOffset + this.Menu.width - (int)(sprite.Width * zoom), this.Menu.yPositionOnScreen + topOffset, (int)(sprite.Width * zoom), (int)(sprite.Height * zoom));
