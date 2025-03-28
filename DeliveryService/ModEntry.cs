@@ -17,12 +17,14 @@ using Microsoft.Xna.Framework.Input;
 using StardewValley.Menus;
 using DeliveryService.Menus.Overlays;
 using Pathoschild.Stardew.Common;
+using StardewUI.Framework;
 
 namespace DeliveryService
 {
     /// <summary>The mod entry point.</summary>
     public class ModEntry : Mod
     {
+        private IViewEngine viewEngine;
         private ModConfig Config;
 
         /// <summary>The overlay for the current menu which which lets the player navigate and edit chests (or <c>null</c> if not applicable).</summary>
@@ -50,6 +52,10 @@ namespace DeliveryService
         }
         private void OnGameLaunched(object sender, GameLaunchedEventArgs e)
         {
+            this.viewEngine = Helper.ModRegistry.GetApi<IViewEngine>("focustense.StardewUI");
+            viewEngine.RegisterViews("Mods/DeliveryService/Menus", "Menus/Overlays");
+            // TODO Get rid of hot reload before release!!
+            viewEngine.EnableHotReloading();
             if (Config.WaitForWizardShop)
                 //Helper.Content.AssetEditors.Add(new WizardMail());
                 Helper.Events.Content.AssetRequested += this.OnAssetRequested;
@@ -373,6 +379,9 @@ namespace DeliveryService
         }
         private bool DeliveryEnabled()
         {
+            Monitor.Log($"Config.WaitForWizardShop = {Config.WaitForWizardShop}", LogLevel.Info);
+            Monitor.Log($"!Config.WaitForWizardShop = {!Config.WaitForWizardShop} && Game1.player.hasMagicInk = {Game1.player.hasMagicInk}", LogLevel.Info);
+            Monitor.Log($"DeliveryEnabled = {(!Config.WaitForWizardShop || Game1.player.hasMagicInk)}", LogLevel.Info);
             return (!Config.WaitForWizardShop || Game1.player.hasMagicInk);
         }
     }

@@ -1,0 +1,47 @@
+{
+  "Texture": "TileSheets/Menu",
+  "Sprites": {
+    "TopLeft": {
+      "SourceRect": "12,12,24,24"
+    },
+    "TopRight": {
+      "SourceRect": "220,12,24,24"
+    },
+    "BottomLeft": {
+      "SourceRect": "12,220,24,24"
+    },
+    "BottomRight": {
+      "SourceRect": "220,220,24,24"
+    },
+    "MiddleLeft": {
+      "SourceRect": "12,84,24,24"
+    },
+    "MiddleRight": {
+      "SourceRect": "220,84,24,24"
+    },
+    "Top": {
+      "SourceRect": "40,12,1,24"
+    },
+    "Left": {
+      "SourceRect": "12,36,24,1"
+    },
+    "Right": {
+      "SourceRect": "220,40,24,1"
+    },
+    "Bottom": {
+      "SourceRect": "36,220,1,24"
+    },
+    "Middle": {
+      "SourceRect": "132,84,1,24"
+    },
+    "Background": {
+      "SourceRect": "64,128,64,64"
+    },
+    "Slot": {
+      "SourceRect": "128,128,64,64"
+    },
+    "SlotDisabled": {
+      "SourceRect": "64,896,64,64"
+    }
+  }
+}

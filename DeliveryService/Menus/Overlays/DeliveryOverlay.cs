@@ -14,6 +14,7 @@ using StardewModdingAPI.Events;
 using StardewValley;
 using StardewValley.Menus;
 using StardewValley.Objects;
+using StardewUI.Framework;
 
 namespace DeliveryService.Menus.Overlays
 {
@@ -241,6 +242,7 @@ namespace DeliveryService.Menus.Overlays
             int leftOffset = Game1.pixelZoom * 16;
             float zoom = 2f * Game1.pixelZoom / 2f;
             //float zoomLevel = Game1.options.zoomLevel;
+            //float zoomLevel = Game1.options.uiScale;
             int checkbox_width = 26;
 
             Rectangle buttonBounds = new Rectangle(this.Menu.xPositionOnScreen + leftOffset + this.Menu.width - (int)(sprite.Width * zoom), this.Menu.yPositionOnScreen + topOffset, (int)(sprite.Width * zoom), (int)(sprite.Height * zoom));

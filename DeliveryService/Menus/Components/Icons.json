@@ -1,0 +1,26 @@
+{
+  "Texture": "TileSheets/Icons",
+  "Sprites": {
+    "DownArrow": {
+      "SourceRect": "12,76,40,44"
+    },
+    "UpArrow": {
+      "SourceRect": "76,72,40,44"
+    },
+    "SpeechBubble": {
+      "SourceRect": "66,4,14,12"
+    },
+    "Junimo": {
+      "SourceRect": "295,1432,15,15"
+    },
+    "EmptyCheckbox": {
+      "SourceRect": "227,425,9,9"
+    },
+    "FilledCheckbox": {
+      "SourceRect": "236,425,9,9"
+    },
+    "ExitButton": {
+      "SourceRect": "337,494,12,12"
+    }
+  }
+}
